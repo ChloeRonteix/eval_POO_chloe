@@ -1,4 +1,5 @@
 from statistics import mean
+from note import Note
 
 class Etudiant:
 
@@ -10,14 +11,13 @@ class Etudiant:
     def __str__(self):
         return f'{self.name} a {self.avg} de moyenne'
 
-    def add_notes(self, note):
-        self.notes.append(note)
-        print(f'{self.name} a eu un {note}/20!')
-    
+    @property
+    def note(self) -> Note:
+        note = Note.find(self.notes)
+        return note
+
     def get_avg(self):
-        avg = sum(self.notes)/len(self.notes)
-        self.avg += avg
-        return self.avg
+        pass
         
 
 
